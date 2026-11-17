@@ -1,0 +1,244 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Banner do Topo */
+/* Banner do Topo */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    background-color: #111;
+}
+
+/* Imagem do Banner */
+.banner-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Camada escura */
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 2;
+}
+
+/* Conteúdo do Banner */
+.banner-content {
+    position: relative;
+    z-index: 3;
+    max-width: 900px;
+    padding: 0 15px;
+}
+
+/* Título Principal (Cinzel) */
+.banner-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #ffc107;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    margin: 0;
+}
+
+/* Subtítulo / Slogan (Lora) */
+.banner-content p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.3rem;
+    color: #f1f1f1;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    margin-top: 10px;
+}
+
+/* =========================================================
+   AJUSTES ESPECÍFICOS PARA CELULAR (Telas menores que 768px)
+   ========================================================= */
+@media (max-width: 768px) {
+    .banner {
+        height: 300px; /* Reduz um pouco a altura no celular */
+    }
+
+    .banner-content h1 {
+        font-size: 1.8rem; /* Diminui o título para caber na tela sem cortar */
+        letter-spacing: 1px;
+    }
+
+    .banner-content p {
+        font-size: 1rem;   /* Diminui o subtítulo e permite quebra natural */
+        white-space: normal; /* Permite que o texto quebre linha de forma bonita no celular */
+        padding: 0 10px;
+    }
+}
+
+/* Container Principal */
+/* Container Principal estilo Recibo / Ticket */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px 30px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Efeito de Serrilhado / Ondinhas de Recibo na parte inferior */
+.container::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: radial-gradient(circle, transparent, transparent 50%, #fff 50%, #fff 100%);
+    background-size: 25px 30px; /* Controla o tamanho e a frequência das ondinhas */
+}
+
+/* Seções do Cardápio */
+.menu-section {
+    margin-bottom: 50px;
+}
+
+.menu-section h2 {
+    text-align: left;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    color: #222;
+    border-left: 5px solid #d9534f;
+    padding-left: 10px;
+}
+
+/* Lista de Itens (Cards) */
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pizza-card {
+    display: flex;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pizza-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.pizza-card img {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+}
+
+.pizza-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.pizza-info h3 {
+    font-size: 1.3rem;
+    color: #d9534f;
+    margin-bottom: 5px;
+}
+
+.pizza-info .ingredientes {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.pizza-info .preco {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* Rodapé com Botão do WhatsApp */
+.footer-whatsapp {
+    background-color: #fff;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 1px solid #eaeaea;
+}
+
+.footer-whatsapp p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25d366;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+    background-color: #20ba5a;
+    transform: scale(1.03);
+}
+
+/* Responsivo para Celulares */
+@media (max-width: 600px) {
+    .pizza-card {
+        flex-direction: column;
+    }
+    
+    .pizza-card img {
+        width: 100%;
+        height: 180px;
+    }
+
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+}
